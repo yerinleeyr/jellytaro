@@ -1,0 +1,413 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ═══════════════════════════════════════
+   Mystic Tarot Design System v1.0
+   ═══════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* ── Mystic Colors ── */
+    --mystic-deep: #0c141a;
+    --mystic-navy: #28487b;
+    --mystic-azure: #4468a6;
+    --mystic-sky: #6e94cf;
+    --mystic-sky-hover: #7ea4df;
+    --mystic-mist: #b9cdee;
+    --mystic-mist-30: rgba(185, 205, 238, 0.3);
+    --mystic-frost: #f4f8ff;
+    --mystic-lavender-30: rgba(232, 224, 240, 0.3);
+
+    /* ── Accent ── */
+    --mystic-emerald: #4ade80;
+    --mystic-emerald-20: rgba(74, 222, 128, 0.2);
+    --mystic-emerald-30: rgba(74, 222, 128, 0.3);
+    --mystic-amber: #fbbf24;
+    --mystic-amber-20: rgba(251, 191, 36, 0.2);
+    --mystic-amber-30: rgba(251, 191, 36, 0.3);
+    --mystic-rose: #fb7185;
+    --mystic-rose-10: rgba(251, 113, 133, 0.1);
+    --mystic-rose-20: rgba(251, 113, 133, 0.2);
+    --mystic-rose-30: rgba(251, 113, 133, 0.3);
+    --mystic-rose-50: rgba(251, 113, 133, 0.5);
+
+    /* ── Surface & Border ── */
+    --mystic-surface: rgba(255, 255, 255, 0.06);
+    --mystic-surface-subtle: rgba(255, 255, 255, 0.03);
+    --mystic-surface-elevated: rgba(255, 255, 255, 0.1);
+    --mystic-surface-hover: rgba(255, 255, 255, 0.08);
+    --mystic-surface-input: rgba(255, 255, 255, 0.05);
+    --mystic-border: rgba(255, 255, 255, 0.1);
+    --mystic-border-hover: rgba(255, 255, 255, 0.2);
+
+    /* ── Sky Alpha Variants ── */
+    --mystic-sky-10: rgba(110, 148, 207, 0.1);
+    --mystic-sky-15: rgba(110, 148, 207, 0.15);
+    --mystic-sky-20: rgba(110, 148, 207, 0.2);
+    --mystic-sky-30: rgba(110, 148, 207, 0.3);
+    --mystic-sky-40: rgba(110, 148, 207, 0.4);
+    --mystic-sky-50: rgba(110, 148, 207, 0.5);
+    --mystic-sky-60: rgba(110, 148, 207, 0.6);
+    --mystic-sky-70: rgba(110, 148, 207, 0.7);
+    --mystic-sky-80: rgba(110, 148, 207, 0.8);
+
+    /* ── Shadows ── */
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --shadow-glow-sky: 0 0 20px rgba(110, 148, 207, 0.3);
+    --shadow-glow-sky-lg: 0 0 40px rgba(110, 148, 207, 0.4);
+    --shadow-glow-sky-sm: 0 0 8px rgba(110, 148, 207, 0.4);
+    --shadow-glow-emerald: 0 0 15px rgba(74, 222, 128, 0.4);
+    --shadow-glow-amber: 0 0 15px rgba(251, 191, 36, 0.4);
+
+    /* ── Blur ── */
+    --blur-sm: 4px;
+    --blur-lg: 16px;
+    --blur-xl: 24px;
+
+    /* ── Gradients ── */
+    --gradient-ocean: linear-gradient(135deg, #0c141a 0%, #1a2d4a 100%);
+    --gradient-sky: linear-gradient(135deg, #28487b 0%, #6e94cf 100%);
+    --gradient-glass: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+
+    /* ── Border Radius ── */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-full: 9999px;
+
+    /* ── Typography Scale ── */
+    --text-7xl: 72px;
+    --text-5xl: 48px;
+    --text-4xl: 36px;
+    --text-3xl: 30px;
+    --text-2xl: 24px;
+    --text-xl: 20px;
+    --text-lg: 18px;
+    --text-base: 16px;
+    --text-sm: 14px;
+    --text-xs: 12px;
+
+    /* ── shadcn 호환 ── */
+    --background: 210 43% 7%;
+    --foreground: 218 55% 84%;
+    --card: 210 43% 7%;
+    --card-foreground: 218 55% 84%;
+    --popover: 210 43% 7%;
+    --popover-foreground: 218 55% 84%;
+    --primary: 213 50% 62%;
+    --primary-foreground: 210 43% 7%;
+    --secondary: 215 30% 20%;
+    --secondary-foreground: 218 55% 84%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 218 30% 65%;
+    --accent: 215 30% 20%;
+    --accent-foreground: 218 55% 84%;
+    --destructive: 350 80% 72%;
+    --destructive-foreground: 210 43% 7%;
+    --border: 215 20% 18%;
+    --input: 215 20% 18%;
+    --ring: 213 50% 62%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ═══════════════════════════════════════
+   Utilities
+   ═══════════════════════════════════════ */
+@layer utilities {
+  /* ── Glass Card ── */
+  .glass-card {
+    backdrop-filter: blur(var(--blur-xl));
+    background: var(--mystic-surface);
+    border: 1px solid var(--mystic-border);
+    box-shadow: var(--shadow-glass);
+  }
+  .glass-card-subtle {
+    backdrop-filter: blur(var(--blur-xl));
+    background: var(--mystic-surface-subtle);
+    border: 1px solid var(--mystic-border);
+    box-shadow: var(--shadow-glass);
+  }
+  .glass-card-elevated {
+    backdrop-filter: blur(var(--blur-xl));
+    background: var(--mystic-surface-elevated);
+    border: 1px solid var(--mystic-border-hover);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* ── Glow Effects ── */
+  .glow-sky {
+    box-shadow: var(--shadow-glow-sky);
+  }
+  .glow-sky-lg {
+    box-shadow: var(--shadow-glow-sky-lg);
+  }
+  .glow-sky-sm {
+    box-shadow: var(--shadow-glow-sky-sm);
+  }
+  .glow-emerald {
+    box-shadow: var(--shadow-glow-emerald);
+  }
+  .glow-amber {
+    box-shadow: var(--shadow-glow-amber);
+  }
+
+  /* ── Text Effects ── */
+  .text-glow-sky {
+    text-shadow: 0 0 30px var(--mystic-sky-50);
+  }
+  .text-glow-subtle {
+    text-shadow: 0 0 20px var(--mystic-lavender-30);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    background: var(--mystic-sky);
+    color: var(--mystic-deep);
+    padding: 16px 32px;
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: var(--shadow-glow-sky);
+    transition:
+      box-shadow 0.2s,
+      background 0.2s;
+  }
+  .btn-primary:hover {
+    box-shadow: var(--shadow-glow-sky-lg);
+    background: var(--mystic-sky-hover);
+  }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--mystic-sky-50);
+    color: var(--mystic-sky);
+    padding: 12px 24px;
+    border-radius: var(--radius-xl);
+    font-weight: 500;
+    font-size: 14px;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+  }
+  .btn-ghost:hover {
+    background: var(--mystic-sky-10);
+    border-color: var(--mystic-sky-80);
+  }
+  .btn-ghost-danger {
+    background: transparent;
+    border: 1px solid var(--mystic-rose-50);
+    color: var(--mystic-rose);
+    padding: 12px 24px;
+    border-radius: var(--radius-xl);
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .btn-ghost-danger:hover {
+    background: var(--mystic-rose-10);
+  }
+  .btn-pill {
+    background: var(--mystic-surface);
+    border: 1px solid var(--mystic-border);
+    color: var(--mystic-mist);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .btn-pill-active {
+    border-color: var(--mystic-sky-60);
+    background: var(--mystic-sky-15);
+    color: var(--mystic-sky);
+  }
+
+  /* ── Input ── */
+  .input-mystic {
+    background: var(--mystic-surface-input);
+    border: 1px solid var(--mystic-border);
+    border-radius: var(--radius-xl);
+    color: var(--mystic-mist);
+    padding: 12px 16px;
+    font-size: 14px;
+    @apply font-sans;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .input-mystic::placeholder {
+    color: var(--mystic-mist-30);
+  }
+  .input-mystic:focus {
+    border-color: var(--mystic-sky-50);
+  }
+
+  .btn-primary:focus-visible,
+  .btn-ghost:focus-visible,
+  .btn-ghost-danger:focus-visible,
+  .btn-pill:focus-visible,
+  .input-mystic:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--mystic-sky-15);
+  }
+
+  /* ── Toggle ── */
+  .toggle {
+    width: 48px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background: var(--mystic-surface-elevated);
+    border: 1px solid var(--mystic-border);
+    position: relative;
+    transition:
+      background 0.2s,
+      border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .toggle::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-full);
+    background: var(--mystic-mist);
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    transition:
+      left 0.2s,
+      background 0.2s;
+  }
+  .toggle-active {
+    background: var(--mystic-sky);
+    border-color: var(--mystic-sky);
+  }
+  .toggle-active::after {
+    left: 28px;
+    background: var(--mystic-mist);
+  }
+
+  /* ── Badges ── */
+  .badge-emerald {
+    background: var(--mystic-emerald-20);
+    border: 1px solid var(--mystic-emerald-30);
+    box-shadow: 0 0 8px var(--mystic-emerald-20);
+    color: var(--mystic-emerald);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .badge-amber {
+    background: var(--mystic-amber-20);
+    border: 1px solid var(--mystic-amber-30);
+    box-shadow: 0 0 8px var(--mystic-amber-20);
+    color: var(--mystic-amber);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .badge-sky {
+    background: var(--mystic-sky-20);
+    border: 1px solid var(--mystic-sky-30);
+    box-shadow: 0 0 8px var(--mystic-sky-20);
+    color: var(--mystic-sky);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .badge-rose {
+    background: var(--mystic-rose-20);
+    border: 1px solid var(--mystic-rose-30);
+    box-shadow: 0 0 8px var(--mystic-rose-20);
+    color: var(--mystic-rose);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .chip {
+    background: var(--mystic-surface);
+    border: 1px solid var(--mystic-border);
+    color: var(--mystic-mist);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  /* ── Animations ── */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* ── Keyframes ── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--mystic-sky-30);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--mystic-sky-70);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
